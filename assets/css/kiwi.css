@@ -3,7 +3,7 @@ html {
 }
 
 h1 {
-    font-family: 'Arial Black', 'sans-serif' !important;
+    font-family: 'Arial Black', 'Aileron-Black', 'sans-serif' !important;
     text-shadow: 4px 4px #343434 !important;
     text-transform: uppercase;
     letter-spacing: 0.1em;
