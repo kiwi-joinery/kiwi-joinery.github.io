@@ -66,6 +66,55 @@ $( document ).ready(function() {
         });
 });
 
-function displayGallery(gallery) {
-    console.log(gallery);
+const GALLERIES = [
+    {
+        code: "STAIRCASES",
+        name: "Staircases"
+    },
+    {
+        code: "WINDOWS",
+        name: "Windows"
+    },
+    {
+        code: "DOORS",
+        name: "Doors"
+    },
+    {
+        code: "OTHER",
+        name: "Other"
+    }
+]
+
+function srcset(files_list) {
+    var s = "";
+    for (f of files_list) {
+        s = s + f.url + " " + f.width + "w" + ",\n";
+    }
+    return s;
 }
+
+function displayGallery(gallery) {
+    for (g of GALLERIES) {
+        const first_match = gallery[g.code][0];
+        $("#kiwi-galleries").append(
+            '<div class="col-md-6">\n' +
+            '    <div data-gallery="'+ g.code +'" class="kiwi-gallery">\n' +
+            '        <img alt="'+ g.name + " Gallery" +'" ' + 'class=""' +
+            '           srcset="' + srcset(first_match.files) + '"' +
+            '           src="'+ first_match.files[first_match.files.length - 1].url + '">\n' +
+            '        <div class="kiwi-gallery-cover">\n' +
+            '            <div class="content">\n' +
+            '                <h4>' + g.name + '</h4>\n' +
+            '                <p>Click for more...</p>\n' +
+            '            </div>\n' +
+            '        </div>\n' +
+            '    </div>\n' +
+            '</div>'
+        )
+    }
+    $(".kiwi-gallery").click(function(e){
+        console.log(e.currentTarget.getAttribute("data-gallery"))
+    });
+}
+
+
