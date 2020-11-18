@@ -1,4 +1,6 @@
 
+const API_URL = "https://api.kiwijoinerydevon.co.uk"
+
 // Fade the "Kiwi Joinery" Header when scrolled down
 $(window).scroll(function(){
     $("#kiwi-header .content").css("opacity", 1 - $(window).scrollTop() / 300);
@@ -43,7 +45,8 @@ $("#kiwi-contact-form").submit(function (e) {
         })
         .fail(function(e) {
             alert.addClass("alert-danger")
-            alert.html("Sorry an error has occurred (" + e.responseJSON.code + ").<br/>Please try emailing or phoning instead ");
+            alert.html("Sorry an error has occurred (" + e.responseJSON.code +
+                ").<br/>Please try emailing or phoning instead ");
         })
         .always(function() {
             alert.attr("hidden", false);
@@ -94,6 +97,8 @@ function srcset(files_list) {
 }
 
 function displayGallery(gallery) {
+    var merged = [];
+    var first_indexes = [];
     for (g of GALLERIES) {
         const first_match = gallery[g.code][0];
         $("#kiwi-galleries").append(
@@ -111,10 +116,73 @@ function displayGallery(gallery) {
             '    </div>\n' +
             '</div>'
         )
+        first_indexes[g.code] = merged.length;
+        merged = merged.concat(gallery[g.code]);
     }
     $(".kiwi-gallery").click(function(e){
-        console.log(e.currentTarget.getAttribute("data-gallery"))
+        let gallery = e.currentTarget.getAttribute("data-gallery");
+        let index = first_indexes[gallery];
+        launch_photoswipe(merged, index);
     });
 }
 
+function launch_photoswipe(images, index) {
+    var pswpElement = document.querySelectorAll('.pswp')[0];
+    var options = {
+        index: index,
+        closeOnScroll: false,
+        closeOnVerticalDrag: false,
+        pinchToClose: false,
+        tapToClose: false,
+        closeOnOutsideClick: false,
+        history: false,
+        preload: [1, 10],
+    };
+    var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, images, options);
+    var realViewportWidth;
+    var realViewportHeight;
+    gallery.listen('beforeResize', function() {
+        realViewportWidth = gallery.viewportSize.x * window.devicePixelRatio;
+        realViewportHeight = gallery.viewportSize.y * window.devicePixelRatio;
+        gallery.invalidateCurrItems();
+    });
+    gallery.listen('gettingData', function(index, item) {
+        let file = closest_matching(item.files, realViewportWidth, realViewportHeight);
+        item.src = file.url;
+        item.w = file.width;
+        item.h = file.height;
+        item.title = item.description;
+    });
+    gallery.init();
+}
 
+function closest_matching(files, width, height) {
+    let sorted_asc_width = files.sort(function (a, b) {
+        return a.width > b.width;
+    });
+    let biggest_width_file = sorted_asc_width[sorted_asc_width.length - 1];
+    let portrait = (biggest_width_file.height > biggest_width_file.width);
+
+    if (portrait) {
+        let sorted_asc_height = files.sort(function (a, b) {
+            return a.height > b.height;
+        });
+        let bigger = sorted_asc_height.filter(function (x) {
+            return x.height >= height;
+        })[0];
+        if (bigger !== undefined) {
+            return bigger;
+        } else {
+            return sorted_asc_height[sorted_asc_height.length - 1];
+        }
+    } else {
+        let bigger = sorted_asc_width.filter(function (x) {
+            return x.width >= width;
+        })[0];
+        if (bigger !== undefined) {
+            return bigger;
+        } else {
+            return sorted_asc_width[sorted_asc_width.length - 1];
+        }
+    }
+}
