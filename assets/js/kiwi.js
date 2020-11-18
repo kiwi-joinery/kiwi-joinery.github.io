@@ -50,3 +50,22 @@ $("#kiwi-contact-form").submit(function (e) {
             fullscreenSpinner(false);
         });
 });
+
+$( document ).ready(function() {
+    $.get( API_URL + "/gallery/list")
+        .done(function(r) {
+            displayGallery(r);
+        })
+        .fail(function(e) {
+            const alert = $("#portfolio .alert");
+            alert.text("An error occurred loading the portfolio. (" + e.responseJSON.code + ")");
+            alert.attr("hidden", false);
+        })
+        .always(function() {
+            $("#portfolio .spinner-border").attr("hidden", true);
+        });
+});
+
+function displayGallery(gallery) {
+    console.log(gallery);
+}
