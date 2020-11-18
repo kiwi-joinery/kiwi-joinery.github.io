@@ -1,0 +1,21 @@
+{
+  "name": "kiwi-web",
+  "version": "1.0.0",
+  "description": "Kiwi Joinery public website frontend",
+  "scripts": {
+    "test": "html-validate index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kiwi-joinery/kiwi-web.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kiwi-joinery/kiwi-web/issues"
+  },
+  "homepage": "https://github.com/kiwi-joinery/kiwi-web#readme",
+  "dependencies": {
+    "html-validate": "^4.0.1"
+  }
+}

@@ -1,0 +1,31 @@
+@font-face {
+	font-family: 'Verlag-Book';
+	src:url('./Verlag-Book/Verlag-Book.otf') format("opentype");
+	src:url('./Verlag-Book/Verlag-Book.eot?d7yf1v');
+	src:url('./Verlag-Book/Verlag-Book.eot?#iefixd7yf1v') format('embedded-opentype'),
+		url('./Verlag-Book/Verlag-Book.woff?d7yf1v') format('woff'),
+		url('./Verlag-Book/Verlag-Book.ttf?d7yf1v') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Verlag-Book';
+	src:url('./Verlag-Book/Verlag-Bold.otf') format("opentype");
+	src:url('./Verlag-Book/Verlag-Bold.eot?d7yf1v');
+	src:url('./Verlag-Book/Verlag-Bold.eot?#iefixd7yf1v') format('embedded-opentype'),
+		url('./Verlag-Book/Verlag-Bold.woff?d7yf1v') format('woff'),
+		url('./Verlag-Book/Verlag-Bold.ttf?d7yf1v') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Slim-Joe';
+	src:url('./Slim-Joe/Slim-Joe.eot?d7yf1v');
+	src:url('./Slim-Joe/Slim-Joe.eot?#iefixd7yf1v') format('embedded-opentype'),
+		url('./Slim-Joe/Slim-Joe.woff?d7yf1v') format('woff'),
+		url('./Slim-Joe/Slim-Joe.ttf?d7yf1v') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}

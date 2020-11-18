@@ -1,0 +1,294 @@
+html {
+    scroll-behavior: smooth;
+}
+
+h1 {
+    font-family: 'Arial Black', 'sans-serif' !important;
+    text-shadow: 4px 4px #343434 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 100;
+    font-size: 6em;
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+    h1 {
+        font-size: 4em;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3em;
+    }
+    .section .text-area {
+        padding: 0 !important;
+    }
+}
+
+h2, h3, h4, h5, h6, a, .navbar {
+    font-family: 'Verlag-Book', 'sans-serif';
+}
+
+h2 {
+    font-size: 2em;
+    line-height: 1.25;
+    letter-spacing: 0.02em;
+    margin: 0.4em 0;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+h3 {
+    margin-top: 1.05882353em;
+    margin-bottom: 1.05882353em;
+}
+
+p {
+    font-family: "Droid Serif", 'sans-serif';
+}
+
+a:hover, a:focus {
+    text-decoration: none;
+    color: #777777;
+    opacity: 0.7;
+}
+
+.navbar-brand {
+    font-family: 'Slim-Joe', 'sans-serif';
+    font-weight: 600;
+}
+
+.navbar {
+    padding: 1.5em !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+
+.navbar-brand img {
+    height: 20px;
+    width: 20px;
+}
+
+.navbar-dark #kiwi-silhouette-grey,
+.navbar-light #kiwi-silhouette-white {
+    display: none;
+}
+
+.navbar-light {
+    background-color: white;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.pattern-image {
+    position: relative;
+}
+
+.pattern-image:after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    content: "";
+    opacity: .4;
+    background: url("../img/pattern/pattern.png");
+}
+
+#kiwi-header .pattern-image {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: block;
+    position: relative;
+}
+
+#kiwi-header .content {
+    top: 44%;
+    position: relative;
+    color: white;
+    text-align: center;
+    transform: translateY(-50%);
+    line-height: 1.7;
+}
+
+/* 992=boostrap large */
+@media (max-width: 992px) {
+    #kiwi-header .pattern-image {
+        height: 80vh;
+    }
+    #kiwi-background {
+        background-position: center center;
+    }
+    #kiwi-header .content {
+        top: 50%;
+    }
+}
+
+#kiwi-background {
+    background-image:url(../img/background/original.jpg);
+    background-repeat: no-repeat;
+    height: 100%;
+    background-position: left top;
+    background-size: cover;
+}
+
+#kiwi-header .container {
+    z-index: 3;
+    position: absolute;
+    height: 100%;
+    min-width: 100%;
+    top: 0;
+}
+
+#kiwi-header p {
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin: 1em 0 0.5em;
+    font-size: 1.2em;
+}
+
+#kiwi-scroll-arrow {
+    font-size: 35px;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid white;
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+}
+
+#kiwi-scroll-arrow i {
+    width: 100%;
+    text-align:center;
+}
+
+.section {
+    padding: 1.875em 0;
+}
+
+.section p {
+    color: #777777;
+}
+
+.section .text-area {
+    padding: 4.375em 0;
+}
+
+.line-separator {
+    color: #c5a47e;
+    margin: 0 auto 1em;
+    width: 11em;
+}
+.line-separator:before, .line-separator:after {
+    display: block;
+    width: 40%;
+    content: " ";
+    margin-top: 14px;
+    border: 1px solid #c5a47e;
+}
+.line-separator:before {
+    float: left;
+}
+.line-separator:after {
+    float: right;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#kiwi-about-background {
+    height: 380px;
+    padding: 0;
+}
+
+#kiwi-about-background img {
+    width: 100% !important;
+    height: 100%;
+    object-fit: cover;
+}
+
+.footer {
+    background-color: #FFFFFF;
+    line-height: 20px;
+    border-top: 1px solid #DDDDDD;
+    padding: 15px 0;
+}
+
+.footer .btn {
+    color: #9A9A9A;
+}
+
+.footer p {
+    color: #777777;
+}
+
+.text-gray {
+    color: #777777;
+}
+
+.btn {
+    border-radius: 2px;
+    border-width: 1px;
+    font-family: "Verlag-Book","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.btn-black {
+    background-color: #434547;
+    border-color: #434547;
+    color: white;
+    opacity: 1;
+    line-height: 1em;
+    position: relative;
+    padding: 16px 44px;
+    letter-spacing: 2px;
+}
+
+.btn-black i {
+    position: absolute;
+    top: 14px;
+    right: 0.25em;
+    opacity: 0;
+}
+
+.btn-black:hover, .btn-black:focus {
+    background-color: #343434;
+    border-color: #343434;
+    color: white;
+    padding: 16px 54px 16px 34px;
+}
+
+.btn-black:hover i, .btn-black:focus i {
+    right: 26px;
+    opacity: 1;
+}
+
+#kiwi-fullscreen-spinner {
+    position: fixed;
+    z-index: 999999;
+    margin: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.5);
+}
+
+#kiwi-fullscreen-spinner > div {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #c5a47e;
+}
