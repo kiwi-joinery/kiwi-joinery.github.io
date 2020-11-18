@@ -44,8 +44,9 @@ $("#kiwi-contact-form").submit(function (e) {
             $("#kiwi-contact-form").trigger("reset");
         })
         .fail(function(e) {
+            var message = e.responseJSON ? e.responseJSON.code : undefined;
             alert.addClass("alert-danger")
-            alert.html("Sorry an error has occurred (" + e.responseJSON.code +
+            alert.html("Sorry an error has occurred (" + message +
                 ").<br/>Please try emailing or phoning instead ");
         })
         .always(function() {
@@ -61,7 +62,8 @@ $( document ).ready(function() {
         })
         .fail(function(e) {
             const alert = $("#portfolio .alert");
-            alert.text("An error occurred loading the portfolio. (" + e.responseJSON.code + ")");
+            var message = e.responseJSON ? e.responseJSON.code : undefined;
+            alert.text("An error occurred loading the portfolio. (" + message + ")");
             alert.attr("hidden", false);
         })
         .always(function() {
