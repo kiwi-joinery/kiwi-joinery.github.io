@@ -135,7 +135,6 @@ function launch_photoswipe(images, index) {
         closeOnScroll: false,
         closeOnVerticalDrag: false,
         pinchToClose: false,
-        closeOnOutsideClick: false,
         history: false,
         preload: [5, 10],
     };
