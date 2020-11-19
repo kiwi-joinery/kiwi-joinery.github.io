@@ -135,6 +135,21 @@ a:hover, a:focus {
     background-position: left top;
     background-size: cover;
 }
+@media (max-width: 750px) {
+    #kiwi-background {
+        background-image:url(../img/background/750w.jpg);
+    }
+}
+@media (min-width: 750px) and (max-width: 1000px) {
+    #kiwi-background {
+        background-image:url(../img/background/1000w.jpg);
+    }
+}
+@media (min-width: 1000px) and (max-width: 1500px) {
+    #kiwi-background {
+        background-image:url(../img/background/1500w.jpg);
+    }
+}
 
 #kiwi-header .container {
     z-index: 3;
