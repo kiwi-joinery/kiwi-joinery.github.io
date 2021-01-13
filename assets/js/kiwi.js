@@ -136,7 +136,7 @@ function launch_photoswipe(images, index) {
         closeOnVerticalDrag: false,
         pinchToClose: false,
         history: false,
-        preload: [5, 10],
+        preload: [1, 5],
     };
     var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, images, options);
     var realViewportWidth;
